@@ -1,135 +1,96 @@
-import { useState } from 'react';
+/* MessageForm.module.css */
+.formContainer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-const MessageForm = () => {
-  const [isClicked, setIsClicked] = useState(false);
+.animatedHeading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(45deg, #7808d0, #23d5ab);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  const handleButtonClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 1000);
-  };
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  return (
-    <div style={styles.formContainer}>
-      <h1 style={styles.animatedHeading}>Contact Us</h1>
-      <input type="text" placeholder="Your Name" style={styles.input} />
-      <textarea placeholder="Your Message" style={styles.textarea}></textarea>
-      <button
-        style={{
-          ...styles.button,
-          ...(isClicked ? styles.clicked : {}),
-        }}
-        onClick={handleButtonClick}
-      >
-        <span style={styles.buttonContent}>
-          <span style={styles.buttonIconWrapper}></span>
-          Submit
-        </span>
-      </button>
-    </div>
-  );
-};
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
 
-const styles = {
-  formContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    padding: '30px',
-    borderRadius: '20px',
-    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2), 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) inset',
-    backdropFilter: 'blur(4px)',
-    '-webkit-backdrop-filter': 'blur(4px)',
-    border: '1px solid rgba(255, 255, 255, 0.18)',
-    width: '100%',
-    maxWidth: '400px',
-    textAlign: 'center',
-    position: 'relative',
-    overflow: 'hidden',
-    transformStyle: 'preserve-3d',
-    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  },
-  animatedHeading: {
-    fontSize: '2.8rem',
-    fontWeight: '700',
-    marginBottom: '30px',
-    letterSpacing: '1px',
-    position: 'relative',
-    display: 'inline-block',
-    background: 'linear-gradient(45deg, #7808d0, #23d5ab)',
-    '-webkit-background-clip': 'text',
-    '-webkit-text-fill-color': 'transparent',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
-  },
-  input: {
-    width: '100%',
-    padding: '12px',
-    marginBottom: '20px',
-    border: '1px solid rgba(120, 8, 208, 0.3)',
-    borderRadius: '8px',
-    fontSize: '16px',
-    boxSizing: 'border-box',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-  },
-  textarea: {
-    width: '100%',
-    padding: '12px',
-    marginBottom: '20px',
-    border: '1px solid rgba(120, 8, 208, 0.3)',
-    borderRadius: '8px',
-    fontSize: '16px',
-    boxSizing: 'border-box',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-    resize: 'vertical',
-    minHeight: '100px',
-  },
-  button: {
-    lineHeight: '1',
-    textDecoration: 'none',
-    display: 'inline-flex',
-    border: 'none',
-    cursor: 'pointer',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.75rem',
-    backgroundColor: '#7808d0',
-    color: '#fff',
-    borderRadius: '10rem',
-    fontWeight: '600',
-    padding: '0.75rem 1.5rem',
-    whiteSpace: 'nowrap',
-    transition: 'all 0.5s ease',
-    position: 'relative',
-    overflow: 'hidden',
-    width: '200px',
-    boxShadow: '0 4px 15px rgba(120, 8, 208, 0.3)',
-  },
-  clicked: {
-    backgroundColor: '#4caf50',
-  },
-  buttonContent: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.75rem',
-    transition: 'all 0.5s ease',
-  },
-  buttonIconWrapper: {
-    flexShrink: '0',
-    width: '25px',
-    height: '25px',
-    position: 'relative',
-    color: '#7808d0',
-    backgroundColor: '#fff',
-    borderRadius: '50%',
-    display: 'grid',
-    placeItems: 'center',
-    overflow: 'hidden',
-    transition: 'all 0.5s ease',
-  },
-};
+.button {
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #7808d0;
+  color: #fff;
+  border-radius: 10rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 4px 15px rgba(120, 8, 208, 0.3);
+}
 
-export default MessageForm;
+.clicked {
+  background-color: #4caf50;
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.5s ease;
+}
+
+.buttonIconWrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: #7808d0;
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
