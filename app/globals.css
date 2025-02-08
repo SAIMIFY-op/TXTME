@@ -1,16 +1,4 @@
-/* Global Styles and Keyframes for Background Animation */
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* globals.css */
 body {
   margin: 0;
   padding: 0;
@@ -22,4 +10,16 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   perspective: 1000px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
