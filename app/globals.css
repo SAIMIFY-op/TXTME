@@ -1,25 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  perspective: 1000px;
-}
-
+/* Global Styles and Keyframes for Background Animation */
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -32,12 +11,15 @@ body {
   }
 }
 
-/* Add support for gradient text in various browsers */
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  perspective: 1000px;
 }
-
